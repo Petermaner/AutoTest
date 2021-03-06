@@ -2,6 +2,20 @@
   {
     "description":"这是一个带cookie的get请求",
     "request":{
+        "uri": "/getCookies",
+        "method": "get"
+    },
+    "response": {
+      "cookies": {
+        "login": "true",
+        "status": "10000"
+      },
+      "text": "success"
+    }
+  },
+  {
+    "description":"这是一个带cookie的get请求",
+    "request":{
       "uri": "/getwithcookie",
       "method":"get",
       "cookies": {

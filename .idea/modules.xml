@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/AutoTest.iml" filepath="$PROJECT_DIR$/.idea/AutoTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/auto/auto.iml" filepath="$PROJECT_DIR$/auto/auto.iml" />
       <module fileurl="file://$PROJECT_DIR$/auto2/auto2.iml" filepath="$PROJECT_DIR$/auto2/auto2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auto_HttpClient/auto_HttpClient.iml" filepath="$PROJECT_DIR$/auto_HttpClient/auto_HttpClient.iml" />
     </modules>
   </component>
 </project>

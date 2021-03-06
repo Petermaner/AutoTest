@@ -11,6 +11,7 @@
     <modules>
         <module>auto</module>
         <module>auto2</module>
+        <module>auto_HttpClient</module>
     </modules>
 
     <properties>

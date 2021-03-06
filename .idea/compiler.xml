@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="auto2" />
+        <module name="auto_HttpClient" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="auto" target="8" />
-      <module name="auto2" target="8" />
-      <module name="AutoTest" target="8" />
+      <module name="auto2" target="15" />
+      <module name="auto_HttpClient" target="8" />
+      <module name="AutoTest" target="15" />
     </bytecodeTargetLevel>
   </component>
 </project>
