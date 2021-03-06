@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<suite name="thread" parallel="classes" thread-count="2">
+    <!--
+    summary：https://i.loli.net/2021/03/06/P3oQlvXCNaxgYwB.png
+    -->
+    <test name="demo1">
+        <classes>
+            <class name="com.course.testng.multiThread.MultiThreadOnXml"/>
+            <class name="com.course.testng.multiThread.MultiThread"/>
+        </classes>
+    </test>
+    <test name="demo2">
+        <classes>
+            <class name="com.course.testng.multiThread.MultiThreadOnXml"/>
+        </classes>
+    </test>
+</suite>

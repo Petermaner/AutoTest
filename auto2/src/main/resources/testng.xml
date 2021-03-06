@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="api test suite">
+    <test name="api test test">
+        <classes>
+            <class name="com.tester.extend.demo.TestMethodsDeom"/>
+            <method>
+                <include name="test1"/>
+                <include name="test2"/>
+                <include name="test3"/>
+                <include name="logDemo"/>
+            </method>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter"/>
+<!--        <listener class-name="com.tester.extend.demo.ExtentTestNGIReporterListenerOld"/>-->
+
+    </listeners>
+</suite>
