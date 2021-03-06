@@ -1,0 +1,20 @@
+[
+  {
+    "description":"这是一个带cookie的get请求",
+    "request":{
+      "uri": "/getwithcookie",
+      "method":"get",
+      "cookies": {
+        "login": "true"
+      }
+    },
+    "response":{
+      "text": "这是一个必须有cookies的get请求",
+      "headers": {
+        "Content-Type": "text/html;charset=gbk"
+      }
+    }
+
+  }
+
+]
