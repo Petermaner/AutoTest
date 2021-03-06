@@ -2,11 +2,14 @@ package com.course.httpclient.cookies;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.CookieStore;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.cookie.Cookie;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -15,7 +18,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class MyCookiesForGet {
+public class MyCookiesForPost {
     private String url;
     private ResourceBundle bundle;
     private CookieStore store;
@@ -33,7 +36,7 @@ public class MyCookiesForGet {
         //HttpClient client = new DefaultHttpClient();
         DefaultHttpClient client = new DefaultHttpClient();
         HttpResponse response = client.execute(get);
-        result = EntityUtils.toString(response.getEntity(),"utf-8");
+        result = EntityUtils.toString(response.getEntity());
         System.out.println(result);
 
         this.store = client.getCookieStore();
@@ -46,25 +49,33 @@ public class MyCookiesForGet {
     }
 
     @Test(dependsOnMethods = {"testGetCookies"})
-    private void testGetWithCookies() throws IOException {
-        String uri = bundle.getString("test.get.with.Cookies.uri");
-        String  testUrl = this.url+uri;
-        HttpGet get = new HttpGet(testUrl);
+    private void testPostMethod() throws IOException {
+        String uri = bundle.getString("test.post.with.Cookies.uri");
+        String  testUrl = this.url+uri;//joint
+
         DefaultHttpClient client = new DefaultHttpClient();
+        HttpPost post = new HttpPost();
 
+        JSONObject param = new JSONObject();
+        param.put("name","wangenhui");
+        param.put("age","22");
+
+        post.setHeader("content-type","application/json");
+        StringEntity entity = new StringEntity(param.toString(),"utf-8");
+        post.setEntity(entity);
+        String result;
         client.setCookieStore(this.store);
+        HttpResponse response = client.execute(post);
+        result = EntityUtils.toString(response.getEntity());
+        System.out.println(result);
+        JSONObject resultJson = new JSONObject(result);
+        String success = (String) resultJson.get("wangenhui");
+        String status = (String) resultJson.get("status");
+        Assert.assertEquals("success",success);
+        Assert.assertEquals("1",status);
 
-        HttpResponse response = client.execute(get);
 
-        int statusCode = response.getStatusLine().getStatusCode();
-        if(statusCode == 200){
-            System.out.println("success:"+statusCode);
-            String result = EntityUtils.toString(response.getEntity());
-            System.out.println(result);
-        }else{
-            System.out.println("other:"+statusCode);
-        }
+
     }
-
 
 }
